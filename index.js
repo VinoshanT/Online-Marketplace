@@ -27,7 +27,7 @@ app.post('/api/products/', function (req, res, next) {
 app.get('/api/products/:productId', function (req, res, next) {
     products.findOne({ _id: req.params.productId}, function(err, product) {
         if (err) return res.status(500).end(err);
-        if (!product) return res.status(404).end("Product id:" +  req.params.productId + "does not exist");
+        if (!product) return res.status(404).end("Product id:" +  req.params.productId + " does not exist");
         return res.json(product);
     });
 });
@@ -61,11 +61,11 @@ app.put('/api/carts/:cartId', function (req, res, next){
     // check if product exists first
     products.findOne({ _id: req.body.productId}, function(err, product) {
         if (err) return res.status(500).end(err);
-        if (!product) return res.status(404).end("Product id:" +  req.body.productId + "does not exist");
+        if (!product) return res.status(404).end("Product id:" +  req.body.productId + " does not exist");
         // check if cart exists
         carts.findOne({_id: req.params.cartId}, function(err, cart){
             if (err) return res.status(500).end(err);
-            if (!cart) return res.status(404).end("Cart id:" + req.params.cartId + "does not exist");
+            if (!cart) return res.status(404).end("Cart id:" + req.params.cartId + " does not exist");
             // update cart
             cart.products.push(req.body.productId)
             cart.total_cost += product.price
@@ -81,6 +81,7 @@ app.put('/api/carts/:cartId', function (req, res, next){
 app.get('/api/carts/:cartId', function (req, res, next) {
     carts.findOne({ _id: req.params.cartId}, function(err, data) {
         if (err) return res.status(500).end(err);
+        if (!data) return res.status(404).end("Cart id:" +  req.params.cartId + " does not exist");
         return res.json(data);
     });
 });
