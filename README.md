@@ -1,6 +1,6 @@
 # Online Marketplace Documentation
 
-## Online Marketplace REST API
+## Instructions
 
 ### Navigate to online-marketplace folder
 ### Run the commands
