@@ -1,13 +1,12 @@
 # Online Marketplace Documentation
 
 ## Instructions
-
-### Navigate to online-marketplace folder
-### Run the commands
-```
-npm install
-node index.js
-```
+  1. Navigate to online-marketplace folder
+  2. Run the following commands
+      ```
+      npm install
+      node index.js
+      ```
 
 ## Online Marketplace REST API
 
